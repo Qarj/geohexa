@@ -1,5 +1,5 @@
 # geohexa 0.1.0
-Latitude and Longitude combined into one number - a hexatrigesimal
+Latitude and Longitude combined into one small string
 
 ## Principles
 * Compress co-ordinate size by using alphabet as well as digits
@@ -17,13 +17,27 @@ Latitude and Longitude combined into one number - a hexatrigesimal
 ## How
 
 * Uses 0 to 9 + a-z giving 36 digits - hexatrigesimal
-* First digit is a longitude - compressing all possible latitudes into 36 digits
+* First digit is a longitude - compressing all possible longitude into 36 digits
 * second digit is a latitude
 * Now the you have compressed the world into a 36 x 36 grid, you location is the midpoint of the 'rectangle'
 * For more precision, keep adding digits (lon lat lon lat lon ...)
 * can be an odd number of digits
 
 That's it!
+
+## Example geohexas
+
+Geohexa | Lat , Lon | Notes
+:--------------- | :---------- | :----------
+ | 0 , 0 | Null geohexa
+0 | 0 , -175 | Single character geohexa
+00 | -87.5 , -175 | Two character geohexa
+zz | 87.5 , 175 |
+hsxatoom | 51.483892, -0.604316 | Windsor Castle
+hszaotyy | 51.504468, -0.085198 | The Shard, London
+hszaounu | 51.507898, -0.087555 | London Bridge
+hszaqu88 | 51.505540, -0.075338 | Tower Bridge
+pqe5cdjz | 40.748403, 73.985661 | Empire State Building
 
 ## Example implementations
 
