@@ -44,9 +44,7 @@ pqe5cdjz | 40.748403, 73.985661 | Empire State Building
 ### Python 3
 
 #### Example - lat lon to geohexa
-```
-geohexa --lat 51.481874 --lon -0.112564
-```
+`geohexa --lat 51.481874 --lon -0.112564`
 
 Produces output:
 ```
@@ -58,9 +56,7 @@ By default, the accuracy is at least within 3 meters.
 
 #### Example - geohexa to lat lon
 
-```
-geohexa --hexa aqL5k4f8my
-```
+`geohexa --hexa aqL5k4f8my`
 
 Produces output:
 ```
@@ -69,9 +65,7 @@ Lat: 40.71083658407638 Lon: -74.00899669924554
 
 #### Example - accurate to at least 0.1 of a meter
 
-```
-geohexa --lat -46.896522 --lon 168.130336 --acc 0.1
-```
+`geohexa --lat -46.896522 --lon 168.130336 --acc 0.1`
 
 Produces output:
 ```
