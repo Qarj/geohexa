@@ -29,7 +29,7 @@ That's it!
 
 Geohexa | Lat , Lon | Notes
 :--------------- | :---------- | :----------
- | 0 , 0 | Null geohexa
+`null` | 0 , 0 | Null geohexa
 0 | 0 , -175 | Single character geohexa
 00 | -87.5 , -175 | Two character geohexa
 zz | 87.5 , 175 |
