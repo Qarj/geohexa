@@ -108,7 +108,6 @@ By default, the accuracy is at least within 3 meters.
 
 Produces output:
 ```
-Converting a geohexa to a lat and lon
 Lat: 40.71083658407638 Lon: -74.00899669924554
 ```
 
