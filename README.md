@@ -82,3 +82,49 @@ Converted back to lat, lon: -46.8965212881992, 168.1303359584042
 `--help` flag outputs help
 
 `test_geohexa.py` runs the unit tests
+
+### Java
+
+First compile the Java:
+```
+javac -d . Geohexa.java
+javac -d . Run.java
+```
+
+#### Example - lat lon to geohexa
+`java geohexa.Run 51.481874 -0.112564`
+
+Produces output:
+```
+geohexa is hszaLoe3t
+Converted back to lat, lon: 51.48185656721534, -0.11256441948635994
+```
+
+By default, the accuracy is at least within 3 meters.
+
+#### Example - geohexa to lat lon
+
+`java geohexa.Run aqL5k4f8my`
+
+Produces output:
+```
+Converting a geohexa to a lat and lon
+Lat: 40.71083658407638 Lon: -74.00899669924554
+```
+
+#### Example - accurate to at least 0.1 of a meter
+
+`java geohexa.Run -46.896522 168.130336 0.1`
+
+Produces output:
+```
+geohexa is y8tm9cofw68
+Converted back to lat, lon: -46.8965212881992, 168.1303359584042
+```
+
+#### Further notes
+
+To run the unit tests, ensure the JUnit environment is set up correctly. Refer to
+https://www.tutorialspoint.com/junit/junit_environment_setup.htm for full details.
+
+Then run `testJava.bat` on Windows machines to compile and execute the tests.

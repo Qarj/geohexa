@@ -67,7 +67,6 @@ class Testgeohexa(unittest.TestCase):
     def test_many_random_lat_lons(self):
         random.seed(42)
         total_length = 0
-        many=1000
         for i in range (0,MANY):
             test_lat = (random.random() * 180) - 90
             test_lon = (random.random() * 360) - 180
@@ -82,7 +81,6 @@ class Testgeohexa(unittest.TestCase):
     def test_many_random_lat_lons_near_equator(self):
         random.seed(42)
         total_length = 0
-        many=1000
         for i in range (0,MANY):
             test_lat = (random.random() * 10) - 5
             test_lon = (random.random() * 360) - 180
@@ -172,10 +170,10 @@ class Testgeohexa(unittest.TestCase):
         self.assertEqual (len(geohexa), 0)
         
     def test_upper_danger_boundary(self):
-        geohexa = latlon_to_geohexa(65, 0, accuracy=0)
+        geohexa = latlon_to_geohexa(64, 0, accuracy=0)
 
     def test_lower_danger_boundary(self):
-        geohexa = latlon_to_geohexa(-45, 0, accuracy=0)
+        geohexa = latlon_to_geohexa(-46, 0, accuracy=0)
 
     def test_all_lat_in_point_one_increments(self):
         acc = 3
