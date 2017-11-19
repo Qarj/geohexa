@@ -22,23 +22,30 @@ public class TestGeohexa {
     double MANY=10_000;
 
     @Test
+    public void testOvalTubeSpecificValue() {
+        Geohexa subject = new Geohexa();
+        String hexa = subject.latLonToGeohexa(51.481874, -0.112564);
+        assertEquals("hszaLoe3t", hexa);
+    }
+
+    @Test
     public void testMaxLatLon() {
         Geohexa subject = new Geohexa();
-        String hexa = subject.latlon_to_geohexa(90,180);
+        String hexa = subject.latLonToGeohexa(90,180);
         assertTrue(hexa.length() >= 2);
     }
 
     @Test
     public void testMinLatLon() {
         Geohexa subject = new Geohexa();
-        String hexa = subject.latlon_to_geohexa(-90,-180);
+        String hexa = subject.latLonToGeohexa(-90,-180);
         assertTrue(hexa.length() >= 2);
     }
 
     @Test
-    public void testGeohexaToLatLonWithinSpecification() {
+    public void testgeohexaToLatLonWithinSpecification() {
         Geohexa subject = new Geohexa();
-        Geohexa.Coordinate latLon = subject.geohexa_to_latlon("zz");
+        Geohexa.Coordinate latLon = subject.geohexaToLatLon("zz");
         assertTrue(latLon.getLat() >= -90);
         assertTrue(latLon.getLat() <= 90);
         assertTrue(latLon.getLon() >= -180);
@@ -56,8 +63,8 @@ public class TestGeohexa {
         Geohexa subject = new Geohexa();
         double testLat = 1.285864;
         double testLon = 103.851831; // Singapore Boat Quay
-        String hexa = subject.latlon_to_geohexa(testLat, testLon);
-        Geohexa.Coordinate latLon = subject.geohexa_to_latlon(hexa);
+        String hexa = subject.latLonToGeohexa(testLat, testLon, TEN_KM);
+        Geohexa.Coordinate latLon = subject.geohexaToLatLon(hexa);
         double error = subject.distance(testLat, testLon, latLon.getLat(), latLon.getLon());
         assertTrue (error < TEN_KM);
     }
@@ -67,8 +74,8 @@ public class TestGeohexa {
         Geohexa subject = new Geohexa();
         double testLat = 64.123565;
         double testLon = -21.805507; // Reykjavik Brewery
-        String hexa = subject.latlon_to_geohexa(testLat, testLon, METER);
-        Geohexa.Coordinate latLon = subject.geohexa_to_latlon(hexa);
+        String hexa = subject.latLonToGeohexa(testLat, testLon, METER);
+        Geohexa.Coordinate latLon = subject.geohexaToLatLon(hexa);
         double error = subject.distance(testLat, testLon, latLon.getLat(), latLon.getLon());
         assertTrue (error < METER);
     }
@@ -78,8 +85,8 @@ public class TestGeohexa {
         Geohexa subject = new Geohexa();
         double testLat = -46.896522;
         double testLon = 168.130336; // NZ Oyster Bar
-        String hexa = subject.latlon_to_geohexa(testLat, testLon, MM);
-        Geohexa.Coordinate latLon = subject.geohexa_to_latlon(hexa);
+        String hexa = subject.latLonToGeohexa(testLat, testLon, MM);
+        Geohexa.Coordinate latLon = subject.geohexaToLatLon(hexa);
         double error = subject.distance(testLat, testLon, latLon.getLat(), latLon.getLon());
         assertTrue (error < MM);
     }
@@ -93,8 +100,8 @@ public class TestGeohexa {
             double testLat = rand.nextDouble()*180 - 90;
             double testLon = rand.nextDouble()*360 - 180;
             //System.out.println("my randoms: " + testLat + ", " + testLon );
-            String hexa = subject.latlon_to_geohexa(testLat, testLon, ACCURACY);
-            Geohexa.Coordinate latLon = subject.geohexa_to_latlon(hexa);
+            String hexa = subject.latLonToGeohexa(testLat, testLon, ACCURACY);
+            Geohexa.Coordinate latLon = subject.geohexaToLatLon(hexa);
             double error = subject.distance(testLat, testLon, latLon.getLat(), latLon.getLon());
             assertTrue (error < ACCURACY);
             totalLength = totalLength + hexa.length();
@@ -111,8 +118,8 @@ public class TestGeohexa {
         for (double i=1; i<MANY+1; i++) {
             double testLat = rand.nextDouble()*10 - 5;
             double testLon = rand.nextDouble()*360 - 180;
-            String hexa = subject.latlon_to_geohexa(testLat, testLon, ACCURACY);
-            Geohexa.Coordinate latLon = subject.geohexa_to_latlon(hexa);
+            String hexa = subject.latLonToGeohexa(testLat, testLon, ACCURACY);
+            Geohexa.Coordinate latLon = subject.geohexaToLatLon(hexa);
             double error = subject.distance(testLat, testLon, latLon.getLat(), latLon.getLon());
             assertTrue (error < ACCURACY);
             totalLength = totalLength + hexa.length();
@@ -129,8 +136,8 @@ public class TestGeohexa {
         for (double i=1; i<MANY+1; i++) {
             double testLat = rand.nextDouble()*10 + 80;
             double testLon = rand.nextDouble()*360 - 180;
-            String hexa = subject.latlon_to_geohexa(testLat, testLon, ACCURACY);
-            Geohexa.Coordinate latLon = subject.geohexa_to_latlon(hexa);
+            String hexa = subject.latLonToGeohexa(testLat, testLon, ACCURACY);
+            Geohexa.Coordinate latLon = subject.geohexaToLatLon(hexa);
             double error = subject.distance(testLat, testLon, latLon.getLat(), latLon.getLon());
             assertTrue (error < ACCURACY);
             totalLength = totalLength + hexa.length();
@@ -147,8 +154,8 @@ public class TestGeohexa {
         for (double i=1; i<MANY+1; i++) {
             double testLat = rand.nextDouble()*10 + 42;
             double testLon = rand.nextDouble()*360 - 180;
-            String hexa = subject.latlon_to_geohexa(testLat, testLon, ACCURACY);
-            Geohexa.Coordinate latLon = subject.geohexa_to_latlon(hexa);
+            String hexa = subject.latLonToGeohexa(testLat, testLon, ACCURACY);
+            Geohexa.Coordinate latLon = subject.geohexaToLatLon(hexa);
             double error = subject.distance(testLat, testLon, latLon.getLat(), latLon.getLon());
             assertTrue (error < ACCURACY);
             totalLength = totalLength + hexa.length();
@@ -160,8 +167,8 @@ public class TestGeohexa {
     @Test
     public void testCaseInsensitiveInputOk() {
         Geohexa subject = new Geohexa();
-        Geohexa.Coordinate latLon1 = subject.geohexa_to_latlon("iilloo");
-        Geohexa.Coordinate latLon2 = subject.geohexa_to_latlon("IILLOO");
+        Geohexa.Coordinate latLon1 = subject.geohexaToLatLon("iilloo");
+        Geohexa.Coordinate latLon2 = subject.geohexaToLatLon("IILLOO");
         assertTrue ( latLon1.getLat() == latLon2.getLat());
         assertTrue ( latLon1.getLon() == latLon2.getLon());
     }
@@ -169,7 +176,7 @@ public class TestGeohexa {
     @Test
     public void testSingleNullGeohexa() {
         Geohexa subject = new Geohexa();
-        Geohexa.Coordinate latLon = subject.geohexa_to_latlon("");
+        Geohexa.Coordinate latLon = subject.geohexaToLatLon("");
         assertTrue ( latLon.getLat() == 0 );
         assertTrue ( latLon.getLon() == 0 );
     }
@@ -177,17 +184,17 @@ public class TestGeohexa {
     @Test
     public void testThreeDigitGeohexa() {
         Geohexa subject = new Geohexa();
-        Geohexa.Coordinate latLon = subject.geohexa_to_latlon("Tim");
-        String hexa = subject.latlon_to_geohexa(latLon.getLat(), latLon.getLon());
-        assertEquals ("tim", hexa );
+        Geohexa.Coordinate latLon = subject.geohexaToLatLon("Tim");
+        String hexa = subject.latLonToGeohexa(latLon.getLat(), latLon.getLon());
+        assertEquals ( "tim", hexa );
     }
 
     @Test
     public void testFourDigitGeohexa() {
         Geohexa subject = new Geohexa();
-        Geohexa.Coordinate latLon = subject.geohexa_to_latlon("Qarj");
-        String hexa = subject.latlon_to_geohexa(latLon.getLat(), latLon.getLon());
-        assertEquals ("qarj", hexa );
+        Geohexa.Coordinate latLon = subject.geohexaToLatLon("Qarj");
+        String hexa = subject.latLonToGeohexa(latLon.getLat(), latLon.getLon());
+        assertEquals ( "qarj", hexa );
     }
 
     @Test
@@ -195,8 +202,8 @@ public class TestGeohexa {
         Geohexa subject = new Geohexa();
         for (char c : BASE_36_DIGITS.toCharArray()) {
             String d1 = Character.toString(c); 
-            Geohexa.Coordinate latLon = subject.geohexa_to_latlon(d1);
-            String hexa = subject.latlon_to_geohexa(latLon.getLat(), latLon.getLon()).toLowerCase();
+            Geohexa.Coordinate latLon = subject.geohexaToLatLon(d1);
+            String hexa = subject.latLonToGeohexa(latLon.getLat(), latLon.getLon()).toLowerCase();
             assertEquals (d1, hexa );
         }
     }
@@ -208,8 +215,8 @@ public class TestGeohexa {
             String d1 = Character.toString(c); 
             for (char d : BASE_36_DIGITS.toCharArray()) {
                 String d2 = Character.toString(d); 
-                Geohexa.Coordinate latLon = subject.geohexa_to_latlon(d1+d2);
-                String hexa = subject.latlon_to_geohexa(latLon.getLat(), latLon.getLon()).toLowerCase();
+                Geohexa.Coordinate latLon = subject.geohexaToLatLon(d1+d2);
+                String hexa = subject.latLonToGeohexa(latLon.getLat(), latLon.getLon()).toLowerCase();
                 assertEquals (d1+d2, hexa );
             }
         }
@@ -222,8 +229,8 @@ public class TestGeohexa {
             String d1 = Character.toString(c); 
             for (char d : BASE_36_DIGITS.toCharArray()) {
                 String d2 = Character.toString(d); 
-                Geohexa.Coordinate latLon = subject.geohexa_to_latlon("00"+d1+d2);
-                String hexa = subject.latlon_to_geohexa(latLon.getLat(), latLon.getLon()).toLowerCase();
+                Geohexa.Coordinate latLon = subject.geohexaToLatLon("00"+d1+d2);
+                String hexa = subject.latLonToGeohexa(latLon.getLat(), latLon.getLon()).toLowerCase();
                 assertEquals ("00"+d1+d2, hexa );
             }
         }
@@ -232,21 +239,21 @@ public class TestGeohexa {
     @Test
     public void testShouldOuputNullDigitGeohexa() {
         Geohexa subject = new Geohexa();
-        String hexa = subject.latlon_to_geohexa(0, 0, 0);
+        String hexa = subject.latLonToGeohexa(0, 0, 0);
         assertEquals (0, hexa.length() );
     }
     
     @Test
     public void testUpperDangerBoundary() {
         Geohexa subject = new Geohexa();
-        String hexa = subject.latlon_to_geohexa(64, 0, 0);
+        String hexa = subject.latLonToGeohexa(64, 0, 0);
         // testing that there is no division by 0 exception - this test applies to an alternate more optimal (and complicated) algorithm - not relevant for the published version
     }
 
     @Test
     public void testLowerDangerBoundary() {
         Geohexa subject = new Geohexa();
-        String hexa = subject.latlon_to_geohexa(-46, 0, 0);
+        String hexa = subject.latLonToGeohexa(-46, 0, 0);
         // same comment as testUpperDangerBoundary
     }
 
@@ -263,14 +270,14 @@ public class TestGeohexa {
             count = count + 1;
             double testLat = i / 10;
             double testLon = rand.nextDouble()*360 - 180;
-            String hexa = subject.latlon_to_geohexa(testLat, testLon, acc);
+            String hexa = subject.latLonToGeohexa(testLat, testLon, acc);
             if (hexa.length() > max) {
                 max = hexa.length();
             }
             if (hexa.length() < min) {
                 min = hexa.length();
             }
-            Geohexa.Coordinate latLon = subject.geohexa_to_latlon(hexa);
+            Geohexa.Coordinate latLon = subject.geohexaToLatLon(hexa);
             double error = subject.distance(testLat, testLon, latLon.getLat(), latLon.getLon());
             assertTrue (error < acc);
             totalLength = totalLength + hexa.length();
@@ -295,14 +302,14 @@ public class TestGeohexa {
             count = count + 1;
             double testLat = rand.nextDouble()*180 - 90;
             double testLon = i / 10;
-            String hexa = subject.latlon_to_geohexa(testLat, testLon, acc);
+            String hexa = subject.latLonToGeohexa(testLat, testLon, acc);
             if (hexa.length() > max) {
                 max = hexa.length();
             }
             if (hexa.length() < min) {
                 min = hexa.length();
             }
-            Geohexa.Coordinate latLon = subject.geohexa_to_latlon(hexa);
+            Geohexa.Coordinate latLon = subject.geohexaToLatLon(hexa);
             double error = subject.distance(testLat, testLon, latLon.getLat(), latLon.getLon());
             assertTrue (error < acc);
             totalLength = totalLength + hexa.length();

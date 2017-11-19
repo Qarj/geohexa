@@ -1,0 +1,18 @@
+* { margin:0; padding:0; }
+
+body { background: #ecf0f1; font:120% Verdana, sans-serif; color:#000; padding:25px 0 0 35px; }
+
+{ padding:1em 1em 0 1em; border:1px solid #ddd; background:DarkSlateGray; margin:0 2em 2em 0; }
+h2 { font-weight:bold; margin-top:0.9em; margin-bottom:0.9em; color:DarkSlateGray; font-family: Verdana, sans-serif; font-size:2em;}
+
+.sep { height:5em; }
+
+input {border-radius: 5px; font-size:1em; }
+
+label { font-style: italic; }
+
+/* hyperlink styles */
+a { text-decoration:none; font-weight:bolder;  }
+a:hover { color:#5BAB03; text-decoration: underline;}
+
+div { line-height:1.6em; }

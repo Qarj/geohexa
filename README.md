@@ -127,3 +127,24 @@ To run the unit tests, ensure the JUnit environment is set up correctly. Refer t
 https://www.tutorialspoint.com/junit/junit_environment_setup.htm for full details.
 
 Then run `testJava.bat` on Windows machines to compile and execute the tests.
+
+### JavaScript
+
+After cloning the repo, double click on `geohexa.html`.
+
+#### Further notes
+
+To run the unit tests, first do one time setup:
+* Install nodejs: https://nodejs.org/en/
+* Install karma `npm install -g karma`
+* Install qunit-qunit `npm install -g karma-qunit`
+* Install qunit `npm install -g qunitjs`
+
+Then run the tests as follows:
+* `start karma start` (on Windows)
+* `karma run`
+
+You can create your own JavaScript unit test config by changing directory to your project, then:
+* `karma init`
+
+Which will create `karma.conf.js` (after you answer questions about your desired setup).

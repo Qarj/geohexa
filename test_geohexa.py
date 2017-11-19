@@ -24,6 +24,10 @@ class Testgeohexa(unittest.TestCase):
     def setUp(self):
         pass
         
+    def test_oval_tube_specific_value(self):
+        hexa = latlon_to_geohexa(51.481874, -0.112564)
+        self.assertEqual( hexa, "hszaLoe3t")
+
     def test_max_lat_lon(self):
         self.assertTrue( len(latlon_to_geohexa(90,180) ) >= 2)
 

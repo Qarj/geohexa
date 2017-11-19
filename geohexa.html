@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <LINK href="geohexa.css" rel="stylesheet" type="text/css">
+    <title>Geohexa</title>
+    <script src="geohexa.js"></script>
+</head>
+    
+<body onload="updateGeohexa()">
+
+<div id="control" class="normal" >
+    <h2>Geohexa to Lat , Lon</h2>
+</div>
+
+<div class="container">
+  <form>
+
+    <div id="hexaError"></div>
+    
+    <label for="geohexa">Geohexa</label>
+    <input type="text" id="geohexa" name="Geohexa" placeholder="Geohexa to convert" onkeyup="updateGeohexa();">
+
+    <b id="oLat"></b>
+    ,
+    <b id="oLon"></b>
+
+    <div class="sep"></div>
+
+    <h2>Lat , Lon to Geohexa</h2>
+
+    <div id="latError"></div>
+    <div id="lonError"></div>
+
+    <label for="lat">Lat</label>
+    <input type="number" id="lat" name="Lat" placeholder="Latitude" onkeyup="updateLatLon();">
+
+    <label for="lat">Lon</label>
+    <input type="number" id="lon" name="Lon" placeholder="Longitude" onkeyup="updateLatLon();">
+
+    <b id="oGeohexa"></b>
+ 
+    <p></p>
+    <br />
+
+    <label for="accuracy">Accuracy</label>
+    <input type="number" id="accuracy" name="Accuracy" placeholder="Accuracy in meters" onkeyup="updateLatLon();">
+
+    <b id="oAccuracy"></b>
+
+  </form>
+</div>
+
+
+</body>
+
+</html>
