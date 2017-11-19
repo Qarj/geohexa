@@ -1,6 +1,8 @@
 # geohexa 0.1.0
 Latitude and Longitude combined into one small string
 
+Try it here: https://qarj.github.io/geohexa/
+
 ## Principles
 * Compress co-ordinate size by using alphabet as well as digits
 * Case insensitive
@@ -131,6 +133,8 @@ Then run `testJava.bat` on Windows machines to compile and execute the tests.
 ### JavaScript
 
 After cloning the repo, double click on `geohexa.html`.
+
+Or just head over to: https://qarj.github.io/geohexa/
 
 #### Further notes
 
