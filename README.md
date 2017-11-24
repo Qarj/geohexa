@@ -152,3 +152,7 @@ You can create your own JavaScript unit test config by changing directory to you
 * `karma init`
 
 Which will create `karma.conf.js` (after you answer questions about your desired setup).
+
+In an organisation with SSL interception, you may need to:
+* `npm config set strict-ssl false`
+* `npm cache verify`
