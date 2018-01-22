@@ -43,7 +43,7 @@ pqe5cdjz | 40.748403, 73.985661 | Empire State Building
 
 ## Example implementations
 
-The Android app, Pointy Arrow implements the java version of geohexa. See it here:
+The Android app, Pointy Arrow, implements the java version of geohexa. See it here:
 
 https://play.google.com/store/apps/details?id=qarj.pointyarrow
 
