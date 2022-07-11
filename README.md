@@ -1,6 +1,6 @@
 # geohexa 0.1.0
 
-![JavaScript](https://github.com/Qarj/geohexa/workflows/Run%20tests/badge.svg)
+![JavaScript](https://github.com/Qarj/geohexa/actions/workflows/JavaScript.yml/badge.svg)
 
 Latitude and Longitude combined into one small string
 
