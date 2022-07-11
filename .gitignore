@@ -1,2 +1,5 @@
 /__pycache__
 *.class
+node_modules/
+.DS_Store
+junit.jar

@@ -1,0 +1,39 @@
+name: Java
+
+on: [push, pull_request]
+
+env:
+    FORCE_COLOR: 2
+
+jobs:
+    run:
+        name: Ubuntu
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Clone repository
+              uses: actions/checkout@v2
+
+            - name: Setup Java
+              uses: actions/setup-java@v3
+              with:
+                  distribution: 'zulu' # See 'Supported distributions' for available options
+                  java-version: '11'
+
+            - name: Download JUnit
+               run: curl https://github.com/downloads/junit-team/junit/junit-4.10.jar --output junit.jar
+
+            - name: compile Geohexa
+              run: javac -d . Geohexa.java
+
+            - name: compile Run
+              run: javac -d . Run.java
+
+            - name: compile TestGeohexa
+              run: javac -d . TestGeohexa.java
+
+            - name: compile TestRunner
+              run: javac -d . TestRunner.java
+
+            - name: Run tests
+              run: java geohexa.TestRunner

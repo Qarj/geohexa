@@ -1,0 +1,18 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[python]": {
+        "editor.defaultFormatter": null
+    },
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": ["--line-length", "120"],
+    "python.formatting.autopep8Args": ["--max-line-length=120"],
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "search.exclude": {
+        "**/downloads": true,
+        "**/.git": true,
+        "**/node_modules": true,
+        "**/screenshots": true,
+        "**/test-reports*": true
+    }
+}
