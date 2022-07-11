@@ -1,5 +1,7 @@
 # geohexa 0.1.0
 
+![JavaScript](https://github.com/Qarj/geohexa/workflows/JavaScript/badge.svg)
+
 Latitude and Longitude combined into one small string
 
 Try it here: https://qarj.github.io/geohexa/
