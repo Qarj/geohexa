@@ -1,0 +1,32 @@
+{
+    "name": "geohexa",
+    "version": "0.1.0",
+    "description": "Latitude and Longitude combined into one small string",
+    "main": "geohexa.js",
+    "scripts": {
+        "test": "npm run karma:geohexa",
+        "karma:geohexa": "karma start karma.conf.js --single-run"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Qarj/geohexa.git"
+    },
+    "keywords": [
+        "geohexa",
+        "coordinates",
+        "single",
+        "string"
+    ],
+    "author": "Qarj",
+    "license": "SEE LICENSE IN LICENSE",
+    "bugs": {
+        "url": "https://github.com/Qarj/geohexa/issues"
+    },
+    "homepage": "https://github.com/Qarj/geohexa#readme",
+    "dependencies": {
+        "karma": "^6.4.0",
+        "karma-chrome-launcher": "^3.1.1",
+        "karma-qunit": "^4.1.2",
+        "qunitjs": "^2.4.1"
+    }
+}
