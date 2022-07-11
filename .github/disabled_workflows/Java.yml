@@ -20,6 +20,9 @@ jobs:
                   distribution: 'zulu' # See 'Supported distributions' for available options
                   java-version: '11'
 
+            - name: Download JUnit
+               run: curl https://github.com/downloads/junit-team/junit/junit-4.10.jar --output junit.jar
+
             - name: compile Geohexa
               run: javac -d . Geohexa.java
 
