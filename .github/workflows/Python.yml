@@ -7,7 +7,7 @@ env:
 
 jobs:
     run:
-        name: Python
+        name: Ubuntu
         runs-on: ubuntu-latest
 
         steps:
