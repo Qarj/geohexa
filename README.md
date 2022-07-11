@@ -1,5 +1,6 @@
 # geohexa 0.1.0
 
+![Python](https://github.com/Qarj/geohexa/workflows/Python/badge.svg)
 ![Python](https://github.com/Qarj/geohexa/actions/workflows/Python.yml/badge.svg)
 ![JavaScript](https://github.com/Qarj/geohexa/actions/workflows/JavaScript.yml/badge.svg)
 
