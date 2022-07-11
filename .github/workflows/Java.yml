@@ -20,6 +20,9 @@ jobs:
                   distribution: 'zulu' # See 'Supported distributions' for available options
                   java-version: '11'
 
+            - name: compile Geohexa
+              run: javac -d . Geohexa.java
+
             - name: compile Run
               run: javac -d . Run.java
 
