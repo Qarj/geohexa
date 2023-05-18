@@ -1,0 +1,5 @@
+*.log
+*.svg
+*.png
+**/test-reports*
+**/state

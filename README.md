@@ -61,7 +61,7 @@ https://play.google.com/store/apps/details?id=qarj.pointyarrow
 
 Produces output:
 
-```
+```txt
 geohexa is hszaLoe3t
 Converted back to lat, lon: 51.48185656721534, -0.11256441948635994
 ```
@@ -74,7 +74,7 @@ By default, the accuracy is at least within 3 meters.
 
 Produces output:
 
-```
+```txt
 Lat: 40.71083658407638 Lon: -74.00899669924554
 ```
 
@@ -84,7 +84,7 @@ Lat: 40.71083658407638 Lon: -74.00899669924554
 
 Produces output:
 
-```
+```txt
 geohexa is y8tm9cofw68
 Converted back to lat, lon: -46.8965212881992, 168.1303359584042
 ```
@@ -103,7 +103,7 @@ Converted back to lat, lon: -46.8965212881992, 168.1303359584042
 
 First compile the Java:
 
-```
+```sh
 javac -d . Geohexa.java
 javac -d . Run.java
 ```
@@ -114,7 +114,7 @@ javac -d . Run.java
 
 Produces output:
 
-```
+```txt
 geohexa is hszaLoe3t
 Converted back to lat, lon: 51.48185656721534, -0.11256441948635994
 ```
@@ -127,7 +127,7 @@ By default, the accuracy is at least within 3 meters.
 
 Produces output:
 
-```
+```txt
 Lat: 40.71083658407638 Lon: -74.00899669924554
 ```
 
@@ -137,7 +137,7 @@ Lat: 40.71083658407638 Lon: -74.00899669924554
 
 Produces output:
 
-```
+```txt
 geohexa is y8tm9cofw68
 Converted back to lat, lon: -46.8965212881992, 168.1303359584042
 ```
