@@ -183,4 +183,4 @@ In an organisation with SSL interception, you may need to:
 
 ### PHP
 
-Check the README.md in the php directory.
+Check the [README.md](/php/README.md) in the php directory.
