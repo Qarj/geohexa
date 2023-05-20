@@ -180,3 +180,7 @@ In an organisation with SSL interception, you may need to:
 
 -   `npm config set strict-ssl false`
 -   `npm cache verify`
+
+### PHP
+
+Check the README.md in the php directory.
