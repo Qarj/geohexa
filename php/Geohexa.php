@@ -2,7 +2,7 @@
 
 class Geohexa
 {
-    private $base36digits = "0123456789abcdefghijklmnopqrstuvwxyz";
+    private $base36digits = "0123456789abcdefghijkLmnopqrstuvwxyz";
 
     public function latlonToGeohexa($lat, $lon, $accuracy = 3)
     {
@@ -64,10 +64,10 @@ class Geohexa
             $integer = intval($i / 2);
             $remainder = $i % 2;
             if ($remainder == 1) {
-                $lon = $lon + ($lon_width / 36) * strpos($this->base36digits, $d);
+                $lon = $lon + ($lon_width / 36) * strpos(strtolower($this->base36digits), $d);
                 $lon_width = $lon_width / 36;
             } else {
-                $lat = $lat + ($lat_width / 36) * strpos($this->base36digits, $d);
+                $lat = $lat + ($lat_width / 36) * strpos(strtolower($this->base36digits), $d);
                 $lat_width = $lat_width / 36;
             }
         }
@@ -114,8 +114,16 @@ class Geohexa
 
     private function compress($num, $cell_size)
     {
+        if ($cell_size == 0) {
+            throw new InvalidArgumentException("Cell size cannot be zero.");
+        }
+
+        fwrite(STDERR, "num: $num\n");
+        fwrite(STDERR, "cell_size: $cell_size\n");
+
         $cell = intval($num / $cell_size);
-        $remainder = $num % $cell_size;
+        fwrite(STDERR, "cell: $cell\n");
+        $remainder = fmod($num, $cell_size);
         $base36 = $this->base36digits[$cell];
 
         return array($base36, $remainder);
