@@ -54,3 +54,11 @@ composer install
 ```bash
 ./vendor/bin/phpunit GeohexaTest.php
 ```
+
+## Development notes
+
+In PHP you need to use a workaround to get console logs to appear during the running of unit tests:
+
+```php
+fwrite(STDERR, "num: $num\n");
+```

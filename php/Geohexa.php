@@ -78,7 +78,7 @@ class Geohexa
         return array($lat, $lon);
     }
 
-    private function distance($lat1, $lon1, $lat2, $lon2)
+    public function distance($lat1, $lon1, $lat2, $lon2)
     {
         $latDistance = deg2rad($lat2 - $lat1);
         $lonDistance = deg2rad($lon2 - $lon1);
@@ -118,11 +118,7 @@ class Geohexa
             throw new InvalidArgumentException("Cell size cannot be zero.");
         }
 
-        fwrite(STDERR, "num: $num\n");
-        fwrite(STDERR, "cell_size: $cell_size\n");
-
         $cell = intval($num / $cell_size);
-        fwrite(STDERR, "cell: $cell\n");
         $remainder = fmod($num, $cell_size);
         $base36 = $this->base36digits[$cell];
 
