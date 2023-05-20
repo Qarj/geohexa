@@ -2,6 +2,7 @@
 
 ![Python](https://github.com/Qarj/geohexa/workflows/Python/badge.svg)
 ![JavaScript](https://github.com/Qarj/geohexa/actions/workflows/JavaScript.yml/badge.svg)
+![PHP](https://github.com/Qarj/geohexa/actions/workflows/PHP.yml/badge.svg)
 
 Latitude and Longitude combined into one small string
 
@@ -179,3 +180,7 @@ In an organisation with SSL interception, you may need to:
 
 -   `npm config set strict-ssl false`
 -   `npm cache verify`
+
+### PHP
+
+Check the [README.md](/php/README.md) in the php directory.

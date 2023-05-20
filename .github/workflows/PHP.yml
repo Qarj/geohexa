@@ -1,0 +1,28 @@
+name: PHP
+
+on: [push, pull_request]
+
+env:
+    FORCE_COLOR: 2
+
+jobs:
+    run:
+        name: Ubuntu
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Clone repository
+              uses: actions/checkout@v2
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '7.4'
+                  extensions: mbstring, intl, json
+                  coverage: none
+
+            - name: Install dependencies
+              run: cd php && composer install
+
+            - name: Run tests
+              run: cd php && ./vendor/bin/phpunit GeohexaTest.php
