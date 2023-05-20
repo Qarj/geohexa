@@ -2,6 +2,7 @@
 
 ![Python](https://github.com/Qarj/geohexa/workflows/Python/badge.svg)
 ![JavaScript](https://github.com/Qarj/geohexa/actions/workflows/JavaScript.yml/badge.svg)
+![PHP](https://github.com/Qarj/geohexa/actions/workflows/PHP.yml/badge.svg)
 
 Latitude and Longitude combined into one small string
 
