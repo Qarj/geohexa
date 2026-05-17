@@ -1,4 +1,4 @@
-# geohexa 0.1.0
+# geohexa 0.1.1
 
 ![Python](https://github.com/Qarj/geohexa/workflows/Python/badge.svg)
 ![JavaScript](https://github.com/Qarj/geohexa/actions/workflows/JavaScript.yml/badge.svg)
@@ -8,29 +8,31 @@ Latitude and Longitude combined into one small string
 
 Try it here: https://qarj.github.io/geohexa/
 
+[Read the full specification here](./geohexa-step-by-step.md)
+
 ## Principles
 
--   Compress co-ordinate size by using alphabet as well as digits
--   Case insensitive
--   No decimal point to worry about, or negative signs
--   No need to worry about which is the latitude and which is the longitude
--   More digits = more precision
--   A geohexa with similar (higher significant digit) numbers are near each other
+- Compress co-ordinate size by using alphabet as well as digits
+- Case insensitive
+- No decimal point to worry about, or negative signs
+- No need to worry about which is the latitude and which is the longitude
+- More digits = more precision
+- A geohexa with similar (higher significant digit) numbers are near each other
 
 ## Why
 
--   Separate Latitude and Longitude has multiple representations making it particularly confusing
--   Easy to say and type into a mobile device - don't have to worry about case or changing keyboard modes for special characters
--   No need for separate Lat and Lon headings / fields
+- Separate Latitude and Longitude has multiple representations making it particularly confusing
+- Easy to say and type into a mobile device - don't have to worry about case or changing keyboard modes for special characters
+- No need for separate Lat and Lon headings / fields
 
 ## How
 
--   Uses 0-9 plus a-z giving 36 possible numbers in a single digit - a hexatrigesimal
--   First digit is a longitude - compressing all possible longitudes into 36 digits
--   second digit is a latitude
--   Now the you have compressed the world into a 36 x 36 grid, your location is the midpoint of the 'rectangle'
--   For more precision, keep adding digits (lon lat lon lat lon ...)
--   can end of a odd number of digits
+- Uses 0-9 plus a-z giving 36 possible numbers in a single digit - a hexatrigesimal
+- First digit is a longitude - compressing all possible longitudes into 36 digits
+- second digit is a latitude
+- Now the you have compressed the world into a 36 x 36 grid, your location is the midpoint of the 'rectangle'
+- For more precision, keep adding digits (lon lat lon lat lon ...)
+- can end of a odd number of digits
 
 That's it!
 
@@ -160,26 +162,26 @@ Or just head over to: https://qarj.github.io/geohexa/
 
 To run the unit tests, first do one time setup:
 
--   Install nodejs: https://nodejs.org/en/
--   Install karma `npm install -g karma`
--   Install qunit-qunit `npm install -g karma-qunit`
--   Install qunit `npm install -g qunitjs`
+- Install nodejs: https://nodejs.org/en/
+- Install karma `npm install -g karma`
+- Install qunit-qunit `npm install -g karma-qunit`
+- Install qunit `npm install -g qunitjs`
 
 Then run the tests as follows:
 
--   `start karma start` (on Windows)
--   `karma run`
+- `start karma start` (on Windows)
+- `karma run`
 
 You can create your own JavaScript unit test config by changing directory to your project, then:
 
--   `karma init`
+- `karma init`
 
 Which will create `karma.conf.js` (after you answer questions about your desired setup).
 
 In an organisation with SSL interception, you may need to:
 
--   `npm config set strict-ssl false`
--   `npm cache verify`
+- `npm config set strict-ssl false`
+- `npm cache verify`
 
 ### PHP
 
