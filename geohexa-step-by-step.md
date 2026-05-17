@@ -244,7 +244,40 @@ Geohexa has a few structural advantages:
 
 This makes the format compact, easy to say, and easy to compare visually.
 
-## 11. Reference background
+## 11. Geohexa and Geohash
+
+Geohexa and Geohash belong to the same broad family of hierarchical geographic cell codes, but they make different tradeoffs.
+
+### What they have in common
+
+- Both encode a longitude/latitude point as a text string.
+- Both are hierarchical: removing trailing characters reduces precision.
+- Both make shared prefixes meaningful: a longer common prefix means the points lie in the same smaller parent cell.
+- Both decode to a representative point inside the final cell rather than recovering the original measurement exactly.
+
+### Main differences
+
+- Geohash is based on repeated binary subdivision of longitude and latitude, with the resulting interleaved bits packed into a base32 alphabet.
+- Geohexa divides each active axis into 36 parts per character, alternating longitude and latitude digits directly.
+- Geohash is a widely adopted standard with strong ecosystem support in GIS tools, databases, and libraries.
+- Geohexa is a smaller experimental format designed around human-friendly text entry.
+- Geohexa is case-insensitive on input, ignores spaces on decode, and avoids punctuation entirely.
+- Geohexa encoding is naturally expressed in terms of a requested distance accuracy in meters.
+
+### What Geohexa does not claim to solve
+
+Geohexa should not be presented as a geometric correction for the distortions of longitude/latitude coordinates. Like Geohash, it still works on rectangular cells in geographic coordinates. East-west physical distances still vary by latitude.
+
+Its main practical difference is the stopping rule used by the encoder: it continues until the decoded midpoint is within the requested geographic error threshold. That adapts the output length to the required accuracy and to the location on Earth, but it is not a different underlying coordinate system.
+
+### When to choose which
+
+- Choose Geohash when interoperability, existing implementations, database support, or standard tooling are the priority.
+- Choose Geohexa when the priority is a compact point code that is easy for people to say, type, and exchange in a single field.
+
+Geohexa is therefore best understood as a small human-facing alternative for some use cases, not as a replacement for Geohash.
+
+## 12. Reference background
 
 The following references are useful background for understanding the accuracy discussion used by the implementations:
 

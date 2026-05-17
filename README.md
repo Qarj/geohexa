@@ -38,6 +38,20 @@ Try it here: https://qarj.github.io/geohexa/
 
 That's it!
 
+## Geohexa vs Geohash
+
+Geohexa and Geohash are both hierarchical codes for longitude and latitude. In both systems, longer strings mean smaller cells, and shared prefixes mean shared parent cells.
+
+The main differences are:
+
+- Geohash is the established standard with broad library, database, and GIS support.
+- Geohexa is a smaller human-facing format aimed at simple entry on a phone or by voice.
+- Geohash uses binary subdivision and a base32 alphabet.
+- Geohexa alternates longitude and latitude digits directly and uses a base36 alphabet.
+- Geohexa encoding stops when the decoded midpoint is within a requested distance accuracy in meters.
+
+Geohexa is not intended as a replacement for Geohash. If you need an interoperable standard or existing tooling such as PostGIS support, Geohash is usually the right choice. Geohexa is useful when the main goal is a compact, case-insensitive, punctuation-free point code that is easy for people to read, type, and share.
+
 ## Example geohexas
 
 | Geohexa  | Lat , Lon            | Notes                    |
