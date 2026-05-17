@@ -48,6 +48,10 @@ def prepare_lon(lon):
     return lon
 
 
+def normalize_hexa(hexa):
+    return hexa.replace(" ", "").lower()
+
+
 def compress(num, cell_size):
     cell, remainder = divmod(num, cell_size)
     base36 = base36digits_output[int(cell)]
@@ -153,6 +157,7 @@ def latlon_to_geohexa(lat, lon, accuracy=3):
 
 
 def geohexa_to_latlon(hexa):
+    hexa = normalize_hexa(hexa)
     lat, lon = 0, 0
     i = 0
     lat_width = 180
@@ -178,8 +183,9 @@ def geohexa_to_latlon(hexa):
 
 
 def in_range(hexa):
+    hexa = normalize_hexa(hexa)
     in_range = True
-    for c in hexa.lower():
+    for c in hexa:
         try:
             base36digits.index(c)
         except ValueError:

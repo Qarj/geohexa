@@ -75,6 +75,13 @@ Two geohexas that share a prefix of length `p` lie in the same parent cell defin
 
 ## 5. Decoding: geohexa to latitude and longitude
 
+Before validation and decoding, normalize the input geohexa as follows:
+
+- remove all space characters
+- convert the remaining characters to lower case
+
+The algorithm below operates on that normalized string.
+
 Let the geohexa be `g_1 g_2 ... g_L`, and let `v_i` be the base-36 value of `g_i`.
 
 Start with:
@@ -214,6 +221,7 @@ Note that geohexa precision is not spatially uniform in meters. A degree of long
 
 The repository implementations agree on the following practical rules:
 
+- decode removes space characters before processing
 - decode accepts upper or lower case input
 - decode rejects any character outside base 36
 - encode expects latitude in `[-90, 90]`
@@ -229,6 +237,7 @@ Geohexa has a few structural advantages:
 
 - one string replaces a latitude and longitude pair
 - the string is case-insensitive on input
+- spaces can be inserted when sharing or reading a geohexa and are ignored on decode
 - there are no minus signs or decimal points
 - longer strings mean higher precision
 - shared prefixes represent shared geographic parent cells

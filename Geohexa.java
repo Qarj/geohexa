@@ -7,6 +7,10 @@ public class Geohexa {
 
     private boolean VERBOSE; // set to true to get detailed information on calculation steps
 
+    private static String normalizeHexa(String hexa) {
+        return hexa.replace(" ", "").toLowerCase();
+    }
+
     void setVERBOSE () {
         VERBOSE = true;
     }
@@ -59,7 +63,7 @@ public class Geohexa {
         if (args.length == 1) {
     
             //System.out.println("Converting a geohexa to a lat and lon");
-            hexa = args[0].toLowerCase();
+            hexa = normalizeHexa(args[0]);
     
             if (! inRange(hexa)) {
                 System.err.println("\nGeohexa digits must only be 0-9, a-z (or A-Z). Example: Qarj");
@@ -78,6 +82,7 @@ public class Geohexa {
     }
     
     public static boolean inRange(String hexa) {
+        hexa = normalizeHexa(hexa);
         boolean inRange = true;
         for (char c : hexa.toCharArray()) {
             if (BASE_36_DIGITS.indexOf(c) == -1) {
@@ -213,6 +218,7 @@ public class Geohexa {
     }
 
     public Coordinate geohexaToLatLon(String hexa) {
+        hexa = normalizeHexa(hexa);
         double lat = 0;
         double lon = 0;
 
@@ -221,7 +227,7 @@ public class Geohexa {
         double latHeight = 180;
         double lonWidth = 360;
 
-        for (char d : hexa.toLowerCase().toCharArray()) {
+        for (char d : hexa.toCharArray()) {
             i = i + 1;
 
             int remainder = Math.floorMod(i, 2);

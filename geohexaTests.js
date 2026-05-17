@@ -52,6 +52,7 @@ QUnit.test('Check that Unit Test Framework is up and running', function (assert)
 QUnit.test('Test in range', function (assert) {
     assert.ok(inRange('abc'), 'abc is a valid geohexa');
     assert.ok(inRange(''), 'null is a valid geohexa');
+    assert.ok(inRange('a bc'), 'spaces are ignored in a geohexa');
 
     assert.ok(inRange('a_c') == false, 'a_c is not a valid geohexa');
 });
@@ -230,6 +231,13 @@ QUnit.test('Test many random lat lons near lat 42 to 52', function (assert) {
 
 QUnit.test('Test case insensitive input', function (assert) {
     var latLon1 = geohexaToLatLon('iilloo');
+    var latLon2 = geohexaToLatLon('IILLOO');
+    assert.ok(latLon1.lat === latLon2.lat);
+    assert.ok(latLon1.lon === latLon2.lon);
+});
+
+QUnit.test('Test spaces are ignored in input', function (assert) {
+    var latLon1 = geohexaToLatLon('ii ll oo');
     var latLon2 = geohexaToLatLon('IILLOO');
     assert.ok(latLon1.lat === latLon2.lat);
     assert.ok(latLon1.lon === latLon2.lon);

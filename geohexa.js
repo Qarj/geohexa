@@ -35,6 +35,10 @@ function prepareLon(lon) {
     return lon + 180;
 }
 
+function normalizeHexa(hexa) {
+    return hexa.replace(/ /g, '').toLowerCase();
+}
+
 function compress(num, cellSize) {
     var cell = Math.floor(num / cellSize);
     var remainder = num - cell * cellSize;
@@ -130,6 +134,7 @@ function latLonToGeohexa(lat, lon, accuracy) {
 }
 
 function geohexaToLatLon(hexa) {
+    hexa = normalizeHexa(hexa);
     var lat = 0;
     var lon = 0;
 
@@ -164,9 +169,10 @@ function geohexaToLatLon(hexa) {
 }
 
 function inRange(hexa) {
+    hexa = normalizeHexa(hexa);
     var len = 0;
     for (var i = 0, len = hexa.length; i < len; i++) {
-        if (BASE_36_DIGITS.indexOf(hexa[i].toLowerCase()) == -1) {
+        if (BASE_36_DIGITS.indexOf(hexa[i]) == -1) {
             return false;
         }
     }
@@ -256,7 +262,7 @@ function updateGeohexa() {
     var eHexaError = document.getElementById('hexaError');
 
     var eHexa = document.getElementById('geohexa');
-    var hexa = eHexa.value.toLowerCase();
+    var hexa = eHexa.value;
 
     var eOLat = document.getElementById('oLat');
     var eOLon = document.getElementById('oLon');

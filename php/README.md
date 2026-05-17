@@ -55,6 +55,17 @@ composer install
 ./vendor/bin/phpunit GeohexaTest.php
 ```
 
+## Decoding note
+
+When converting geohexa to latitude and longitude, the PHP implementation removes spaces and treats the input case-insensitively.
+
+Example:
+
+```php
+$geohexa = new Geohexa();
+[$lat, $lon] = $geohexa->geohexaToLatlon('hs zaL oe3 t');
+```
+
 ## Development notes
 
 In PHP you need to use a workaround to get console logs to appear during the running of unit tests:

@@ -17,6 +17,7 @@ Try it here: https://qarj.github.io/geohexa/
 - No decimal point to worry about, or negative signs
 - No need to worry about which is the latitude and which is the longitude
 - More digits = more precision
+- Spaces are ignored when converting a geohexa back to latitude and longitude
 - A geohexa with similar (higher significant digit) numbers are near each other
 
 ## Why
@@ -32,6 +33,7 @@ Try it here: https://qarj.github.io/geohexa/
 - second digit is a latitude
 - Now the you have compressed the world into a 36 x 36 grid, your location is the midpoint of the 'rectangle'
 - For more precision, keep adding digits (lon lat lon lat lon ...)
+- When decoding, spaces are ignored and the input is case-insensitive
 - can end of a odd number of digits
 
 That's it!
@@ -73,13 +75,15 @@ By default, the accuracy is at least within 3 meters.
 
 #### Example - geohexa to lat lon
 
-`geohexa --hexa aqL5k4f8my`
+`geohexa --hexa "aq L5k4 f8my"`
 
 Produces output:
 
 ```txt
 Lat: 40.71083658407638 Lon: -74.00899669924554
 ```
+
+Spaces are ignored and the input is case-insensitive when converting geohexa to latitude and longitude.
 
 #### Example - accurate to at least 0.1 of a meter
 
@@ -126,13 +130,15 @@ By default, the accuracy is at least within 3 meters.
 
 #### Example - geohexa to lat lon
 
-`java geohexa.Run aqL5k4f8my`
+`java geohexa.Run "aq L5k4 f8my"`
 
 Produces output:
 
 ```txt
 Lat: 40.71083658407638 Lon: -74.00899669924554
 ```
+
+Spaces are ignored and the input is case-insensitive when converting geohexa to latitude and longitude.
 
 #### Example - accurate to at least 0.1 of a meter
 
@@ -160,6 +166,8 @@ Or just head over to: https://qarj.github.io/geohexa/
 
 #### Further notes
 
+When converting geohexa to latitude and longitude in the browser UI, spaces are ignored and the input is case-insensitive.
+
 To run the unit tests, first do one time setup:
 
 - Install nodejs: https://nodejs.org/en/
@@ -185,4 +193,4 @@ In an organisation with SSL interception, you may need to:
 
 ### PHP
 
-Check the [README.md](/php/README.md) in the php directory.
+Check the [README.md](/php/README.md) in the php directory. The PHP decoder also ignores spaces and upper/lower case when converting geohexa to latitude and longitude.

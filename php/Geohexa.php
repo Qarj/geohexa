@@ -4,6 +4,11 @@ class Geohexa
 {
     private $base36digits = "0123456789abcdefghijkLmnopqrstuvwxyz";
 
+    private function normalizeHexa($hexa)
+    {
+        return strtolower(str_replace(' ', '', $hexa));
+    }
+
     public function latlonToGeohexa($lat, $lon, $accuracy = 3)
     {
         if ($accuracy < 0.00000001) {
@@ -51,6 +56,7 @@ class Geohexa
 
     public function geohexaToLatlon($hexa)
     {
+        $hexa = $this->normalizeHexa($hexa);
         $lat = 0;
         $lon = 0;
         $i = 0;
@@ -58,7 +64,7 @@ class Geohexa
         $lon_width = 360;
 
         for ($j = 0; $j < strlen($hexa); $j++) {
-            $d = strtolower($hexa[$j]);
+            $d = $hexa[$j];
             $i = $i + 1;
 
             $integer = intval($i / 2);

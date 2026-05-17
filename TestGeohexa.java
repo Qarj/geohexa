@@ -174,6 +174,16 @@ public class TestGeohexa {
     }
 
     @Test
+    public void testSpacesAreIgnoredInInput() {
+        Geohexa subject = new Geohexa();
+        assertTrue(Geohexa.inRange("ii ll oo"));
+        Geohexa.Coordinate latLon1 = subject.geohexaToLatLon("ii ll oo");
+        Geohexa.Coordinate latLon2 = subject.geohexaToLatLon("IILLOO");
+        assertTrue(latLon1.getLat() == latLon2.getLat());
+        assertTrue(latLon1.getLon() == latLon2.getLon());
+    }
+
+    @Test
     public void testSingleNullGeohexa() {
         Geohexa subject = new Geohexa();
         Geohexa.Coordinate latLon = subject.geohexaToLatLon("");

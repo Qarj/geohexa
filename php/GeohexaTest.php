@@ -26,6 +26,14 @@ class GeohexaTest extends TestCase
         $this->assertEquals(-0.11256441948635994, $lon, '', 0.0001);
     }
 
+    public function testGeohexaToLatlonIgnoresSpacesAndCase()
+    {
+        list($lat1, $lon1) = $this->geohexa->geohexaToLatlon('hs zaL oe3 t');
+        list($lat2, $lon2) = $this->geohexa->geohexaToLatlon('HSZALOE3T');
+        $this->assertEquals($lat2, $lat1, '', 0.00000001);
+        $this->assertEquals($lon2, $lon1, '', 0.00000001);
+    }
+
     public function testMaxLatLon()
     {
         $this->assertTrue(strlen($this->geohexa->latlonToGeohexa(90, 180)) >= 2);

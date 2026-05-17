@@ -2,7 +2,7 @@
 version = "0.1.0"
 
 import unittest, random
-from geohexa import latlon_to_geohexa, geohexa_to_latlon, distance
+from geohexa import latlon_to_geohexa, geohexa_to_latlon, distance, in_range
 
 MM = 0.001
 CM = 0.01
@@ -148,6 +148,13 @@ class Testgeohexa(unittest.TestCase):
 
     def test_case_insensitive_input_ok(self):
         lat1, lon1 = geohexa_to_latlon("iilloo")
+        lat2, lon2 = geohexa_to_latlon("IILLOO")
+        self.assertTrue(lat1 == lat2)
+        self.assertTrue(lon1 == lon2)
+
+    def test_spaces_are_ignored_in_input(self):
+        self.assertTrue(in_range("ii ll oo"))
+        lat1, lon1 = geohexa_to_latlon("ii ll oo")
         lat2, lon2 = geohexa_to_latlon("IILLOO")
         self.assertTrue(lat1 == lat2)
         self.assertTrue(lon1 == lon2)
